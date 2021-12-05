@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BiscuitQualityAssuaranceSystem.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <tr><br /><br />
+        <h2>Home</h2>
+        <h4>Product Category </h4>
+    </tr>
+    <br /><br />
+          <tr>
+              <th>
+                  @Html.DisplayNameFor(model => model.cat_name)
+              </th>
+              <th>
+                  @Html.DisplayNameFor(model => model.cat_desc)
+              </th>
+              <th>
+                  <div class="row">
+                      <button type="button" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Create", "Categories")'">
+                          <span class="glyphicon glyphicon-plus"></span> New Category
+                      </button>
+                  </div>
+              </th>
+          </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.cat_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cat_desc)
+    </td>
+    <td style="width:150px;">
+        <div class="row">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Categories", new { id = item.cat_name })'">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details", "Categories", new { id = item.cat_name })'">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Categories", new { id = item.cat_name })'">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </td>
+</tr>
+}
+
+</table>

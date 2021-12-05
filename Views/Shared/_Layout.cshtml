@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Home</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>   
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>      
+    <div class="navbar navbar-fixed-top bg-warning navbar-fixed-top" style="background-color: #f7a91c;" background-image="~/images/bg.jpg">
+        
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+                @* Dissable "Home" text till user logged in*@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'" style="margin-top:7px">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </button>
+                }
+            </div>
+            <div class="navbar-collapse collapse" style="width:2000px">
+                <ul class="nav navbar-nav" style="font-size:medium">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("User Registration", "Index", "UserRegistration")</li>
+
+                            //CreateInstanceFromVirtualPath Production Planing dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Production Planing
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
+                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                    <li>@Html.ActionLink("Product Plans", "Index", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Parameters", "Index", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+
+                            <li>@Html.ActionLink("Quality Checker", "Index", "Quality_Checker")</li>
+                            <li>@Html.ActionLink("Shift Manager", "Index", "Shift_Manager")</li>
+
+                            //CreateInstanceFromVirtualPath Actions dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Actions
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Complaints", "Index", "Complaints")</li>
+                                    <li>@Html.ActionLink("Decisions", "Index", "Decisions")</li>
+                                </ul>
+                            </li>
+
+                            //CreateInstanceFromVirtualPath Report dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Reports
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Decisions Report", "ReportDecisionsFilter", "Decisions")</li>
+                                    <li>@Html.ActionLink("Product Plan Report", "ReportProductPlanFilter", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Checker Report", "ReportQualityCheckerFilter", "Quality_Checker")</li>
+                                    <li>@Html.ActionLink("Quality Parameter Report", "ReportQualityParameterFilter", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+                        }
+                        else if (User.IsInRole("Production Manager"))
+                        {
+                            //CreateInstanceFromVirtualPath Production Planing dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Production Planing
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
+                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                    <li>@Html.ActionLink("Product Plans", "Index", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Parameters", "Index", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+
+
+                            //CreateInstanceFromVirtualPath Report dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Reports
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Decisions Report", "ReportDecisionsFilter", "Decisions")</li>
+                                    <li>@Html.ActionLink("Product Plan Report", "ReportProductPlanFilter", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Checker Report", "ReportQualityCheckerFilter", "Quality_Checker")</li>
+                                    <li>@Html.ActionLink("Quality Parameter Report", "ReportQualityParameterFilter", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+                        }
+                        else if (User.IsInRole("Shift Manager"))
+                        {
+                            //CreateInstanceFromVirtualPath Production Planing dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Production Planing
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Product Categories", "Index", "Categories")</li>
+                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                    <li>@Html.ActionLink("Product Plans", "Index", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Parameters", "Index", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+
+                            <li>@Html.ActionLink("Quality Checker", "Index", "Quality_Checker")</li>
+
+
+
+                            //CreateInstanceFromVirtualPath Actions dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Actions
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Decisions", "Index", "Decisions")</li>
+                                </ul>
+                            </li>
+
+                            //CreateInstanceFromVirtualPath Report dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Reports
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Decisions Report", "ReportDecisionsFilter", "Decisions")</li>
+                                    <li>@Html.ActionLink("Product Plan Report", "ReportProductPlanFilter", "Product_Plan")</li>
+                                    <li>@Html.ActionLink("Quality Checker Report", "ReportQualityCheckerFilter", "Quality_Checker")</li>
+                                    <li>@Html.ActionLink("Quality Parameter Report", "ReportQualityParameterFilter", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+                        }
+                        else if (User.IsInRole("Quality Checker"))
+                        {
+                            //CreateInstanceFromVirtualPath Production Planing dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Production Planing
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Quality Parameters", "Index", "Quality_Parameter")</li>
+                                </ul>
+                            </li>
+
+                            <li>@Html.ActionLink("Quality Checker", "Index", "Quality_Checker")</li>
+
+                            //CreateInstanceFromVirtualPath Actions dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Actions
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Complaints", "Index", "Complaints")</li>
+                                </ul>
+                            </li>
+
+                            //CreateInstanceFromVirtualPath Report dropdown
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Reports
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Decisions Report", "ReportDecisionsFilter", "Decisions")</li>
+                                    <li>@Html.ActionLink("Product Plan Report", "ReportProductPlanFilter", "Product_Plan")</li>
+                                </ul>
+                            </li>
+                        }
+                        <li>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Logout", "User")'" style="margin-top:7px">
+                                <span class="glyphicon glyphicon-off"></span>
+                            </button>
+                        </li>
+                        <li>
+                            <ul>
+                                <span class="glyphicon glyphicon-user"></span>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6><b>Logged in as @User.Identity.Name</b></h6>
+                        </li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <ul>
+                                        <h6><b>Designation: Admin</b></h6>
+                                    </ul>
+                                }
+                                if (User.IsInRole("Production Manager"))
+                                {
+                                    <ul>
+                                        <h6><b>Designation: Production Manager</b></h6>
+                                    </ul>
+                                }
+                                if (User.IsInRole("Shift Manager"))
+                                {
+                                    <ul>
+                                        <h6><b>Designation: Shift Manager</b></h6>
+                                    </ul>
+                                }
+                                if (User.IsInRole("Quality Checker"))
+                                {
+                                    <ul>
+                                        <h6><b>Designation: Quality Checker</b></h6>
+                                    </ul>
+                                }
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr /><br/><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Biscuits Quality Assuarance System.</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/CustomeDateTimeScript.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

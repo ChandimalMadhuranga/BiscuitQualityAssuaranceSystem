@@ -1,0 +1,97 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <br /><br />
+    <h2>Details</h2>
+    <h4>User</h4>
+    <hr /><br /><br />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "UserRegistration")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Roles.User_Role_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Roles.User_Role_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_F_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_F_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_L_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_L_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Mob_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Mob_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Registration_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Registration_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>    
+    <div>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "UserRegistration", new { id = Model.User_Employee_ID })'">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+    </div>
+</p>

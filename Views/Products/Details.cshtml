@@ -1,0 +1,56 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <br /><br />
+    <h2>Details</h2>
+    <h4>Product</h4>
+    <hr /><br /><br />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Products")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.cat_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.cat_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shift_Manager.SM_F_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shift_Manager.SM_F_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_name)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Products", new { id = Model.Product_code })'">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+</div>

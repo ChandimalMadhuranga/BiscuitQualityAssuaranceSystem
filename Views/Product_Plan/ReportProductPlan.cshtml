@@ -1,0 +1,32 @@
+﻿@using ReportViewerForMvc;
+@model BiscuitQualityAssuaranceSystem.Models.Product_Plan
+
+@{
+    ViewBag.Title = "ReportProductPlan";
+}
+
+
+    @using (Html.BeginForm("ReportProductPlan", "Product_Plan", FormMethod.Post))
+    {
+        <p>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Product_Date, "{yyyy-MM-dd}", new { htmlAttributes = new { @class = "form-control datetimepicker" } })
+                    @* @Html.TextBoxFor(model => model.Product_Date, "", new { @class = "form-control", type = "datetime-local" })*@
+                    @Html.ValidationMessageFor(model => model.Product_Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Generate Report" class="btn btn-warning" />
+            </div>
+        </p>
+    }
+
+<div class="row" style="margin-top:100px">
+    @if (ViewBag.ReportViewer != null)
+    {
+        @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+    }
+</div>

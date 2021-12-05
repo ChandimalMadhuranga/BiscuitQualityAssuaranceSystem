@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BiscuitQualityAssuaranceSystem.Models.Quality_Parameter>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table table-hover">
+    <tr><br /><br />
+        <h2>Quality Parameter Home</h2>
+    </tr><br /><br />
+               <tr>
+                   <th>
+                       @Html.DisplayNameFor(model => model.QP_code)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Product.Product_name)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Weight)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Waterlevel1)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Waterlevel2)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Taste)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Moisture)
+                   </th>
+                   <th>
+                       <div class="row">
+                           <button type="button" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Create", "Quality_Parameter")'">
+                               <span class="glyphicon glyphicon-plus"></span> New Quality Parameter
+                           </button>
+                       </div>
+                   </th>
+               </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.QP_code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product.Product_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Weight)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Waterlevel1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Waterlevel2)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Taste)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Moisture)
+    </td>
+    <td style="width:150px;">
+        <div class="row">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Quality_Parameter", new { id = item.QP_code })'">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details", "Quality_Parameter", new { id = item.QP_code })'">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Quality_Parameter", new { id = item.QP_code })'">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </td>
+</tr>
+    }
+
+</table>

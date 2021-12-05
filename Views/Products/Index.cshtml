@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BiscuitQualityAssuaranceSystem.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table table-hover">
+    <tr><br /><br />
+        <h2>Product Home</h2>
+    </tr><br /><br />
+               <tr>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Product_code)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Product_name)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Category.cat_name)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Shift_Manager.SM_F_name)
+                   </th>
+                   <th>
+                       <div class="row">
+                           <button type="button" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Create", "Products")'">
+                               <span class="glyphicon glyphicon-plus"></span> New Product
+                           </button>
+                       </div>
+                   </th>
+               </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product_code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.cat_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Shift_Manager.SM_F_name)
+    </td>
+    <td style="width:150px;">
+        <div class="row">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Products", new { id = item.Product_code })'">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details", "Products", new { id = item.Product_code })'">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Products", new { id = item.Product_code })'">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </td>
+</tr>
+    }
+
+</table>

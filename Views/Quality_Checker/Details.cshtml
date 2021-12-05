@@ -1,0 +1,81 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.Quality_Checker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <br /><br />
+    <h2>Details</h2>
+    <h4>Quality Checker</h4>
+    <hr /><br /><br />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Quality_Checker")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shift_Manager.SM_F_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shift_Manager.SM_F_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qc_F_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qc_F_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qc_L_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qc_L_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qc_NIC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qc_NIC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QC_User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QC_User_Name)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Quality_Checker", new { id = Model.Qc_id })'">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+</div>
+

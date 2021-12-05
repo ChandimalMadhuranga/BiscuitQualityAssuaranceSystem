@@ -1,0 +1,66 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.Product_Plan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product_Plan</h4>
+    <hr />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Product_Plan")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Expected_qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Expected_qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Qty)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>

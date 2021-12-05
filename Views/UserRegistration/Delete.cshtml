@@ -1,0 +1,98 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>User</h4>
+    <hr />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "UserRegistration")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Roles.User_Role_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Roles.User_Role_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_F_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_F_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_L_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_L_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Mob_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Mob_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Registration_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Registration_Date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />            
+        </div>
+    }
+</div>

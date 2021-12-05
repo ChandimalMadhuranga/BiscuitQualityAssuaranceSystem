@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BiscuitQualityAssuaranceSystem.Models.Decision>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table table-hover">
+    <tr><br /><br />
+        <h2>Decisions Home</h2>
+    </tr><br /><br />
+               <tr>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Des_ID)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Des_Description)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Dec_date)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Shift_Manager.SM_F_name)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Com_ID)
+                   </th>
+                   <th>
+                       @Html.DisplayNameFor(model => model.Dec_Status)
+                   </th>
+                   <th>
+                       <div class="row">
+                           <button type="button" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Create", "Decisions")'">
+                               <span class="glyphicon glyphicon-plus"></span> New Decision
+                           </button>
+                       </div>
+                   </th>
+               </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Des_ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Des_Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dec_date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Shift_Manager.SM_F_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Com_ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dec_Status)
+    </td>
+    <td style="width:150px;">
+        <div class="row">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Decisions", new { id = item.Des_ID })'">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details", "Decisions", new { id = item.Des_ID })'">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
+
+            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Decisions", new { id = item.Des_ID })'">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </td>
+</tr>
+    }
+
+</table>

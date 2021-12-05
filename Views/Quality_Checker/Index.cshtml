@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BiscuitQualityAssuaranceSystem.Models.Quality_Checker>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table table-hover">
+    <tr><br /><br />
+        <h2>Quality Checker Home</h2>
+    </tr><br /><br />
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Qc_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qc_F_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qc_L_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qc_NIC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Product_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shift_Manager.SM_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QC_User_Name)
+        </th>
+        <th>
+            <div class="row">
+                <button type="button" class="btn btn-info btn-lg" onclick="location.href='@Url.Action("Create", "Quality_Checker")'">
+                    <span class="glyphicon glyphicon-plus"></span> New Quality Checker
+                </button>
+            </div>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qc_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qc_F_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qc_L_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qc_NIC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Product_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shift_Manager.SM_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QC_User_Name)
+            </td>
+            <td style="width:150px;">
+                <div class="row">
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Quality_Checker", new { id = item.Qc_id })'">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details", "Quality_Checker", new { id = item.Qc_id })'">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </button>
+
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Quality_Checker", new { id = item.Qc_id })'">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

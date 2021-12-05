@@ -1,0 +1,6 @@
+﻿
+$(function () {
+
+    $('.datetimepicker').datetimepicker();
+
+});

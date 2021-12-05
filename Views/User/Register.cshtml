@@ -1,0 +1,125 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+  
+<div class="jumbotron">
+    <h1>Biscuit Quality Assuarance System</h1>
+</div>
+<div class="form-horizontal">
+    <h2>Create</h2>
+    <h4>User</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div class="col-lg-10">
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Login", "User")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Employee_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.User_Employee_ID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User_Employee_ID, "", new { @class = "text-danger" })*@
+            @ViewBag.User_Employee_ID
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Name, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_F_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_F_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User_F_Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_L_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_L_Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User_L_Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Email, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" }} )
+            @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Mob_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_Mob_Number, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.User_Mob_Number, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Role_ID, "User Role", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("User_Role_ID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.User_Role_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Password, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.PasswordFor(model => model.User_Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.User_Password2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.PasswordFor(model => model.User_Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.User_Password2, "", new { @class = "text-danger" })
+        </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User_Registration_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_Registration_Date, new { htmlAttributes = new { @class = "form-control datetimepicker" } })
+            @Html.ValidationMessageFor(model => model.User_Registration_Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-warning" />
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

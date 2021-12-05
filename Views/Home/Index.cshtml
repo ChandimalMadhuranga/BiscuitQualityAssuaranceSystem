@@ -1,0 +1,45 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.User
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Biscuit Quality Assuarance System</h1>    
+</div>
+<div class="row">
+    @*<div class="col-md-4">
+            <h2>Welcome @User.Identity.Name</h2>
+            <p>
+                The aim of this project is to develop an online web based computerized system called “Quality Assurance Automation System for Ceylon Biscuits Limited”. Currently they don’t have computerized process to overlook entire biscuit manufacturing process. They are conducting the biscuits quality assurance process in a manual way to record details such as quality parameters (Color, Taste, Moisture etc) information and production related issues etc. Also, they don’t have previous QA related reports of each product. Due to those issues their process is time consuming and less efficient This causes many problems for all the employees including top management to operational level employees.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p>
+                This system facilitates interaction among the biscuit quality parameters, quality checker, Shift Manager, Production manager and System Administrator. By introducing the Quality Assurance Automation System, supervisors can take quick action when issues are found in quality related parameters in production, managers can access monthly and quarterly wise product reports. That will help to make future production decisions. There will be a dashboard that facilitates monitoring real time product line statistics for managers in the current process.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p>
+                This project is following the waterfall model in order to develop the software application required. This consisted of gathering and analyzing the user’s requirements, and then through a number of iterations, designing, implementing, and testing the application to identify whether users’ requirements have been met.
+            </p>
+        </div>*@
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        if (User.IsInRole("Shift Manager"))
+        {
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("ManagerTasks", "Complaints")'">
+                <span class="glyphicon glyphicon-tasks"></span> My Tasks
+            </button>
+        }
+        if (User.IsInRole("Quality Checker"))
+        {
+            @*@Html.ActionLink("My Complaints", "QualityCheckerTasks", "Complaints")*@
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("QualityCheckerTasks", "Complaints")'">
+                <span class="glyphicon glyphicon-tasks"></span> My Complaints
+            </button>
+        }
+    }
+</div>

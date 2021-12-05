@@ -1,0 +1,81 @@
+﻿@model BiscuitQualityAssuaranceSystem.Models.Complaint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <br /><br />
+    <h2>Details</h2>
+    <h4>Complaint</h4>
+    <hr /><br /><br />
+    <div class="row">
+        <div class="col-lg-12 title-bar">
+            <div>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Complaints")'" style="margin-top: 3px;">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quality_Checker.Qc_F_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quality_Checker.Qc_F_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shift_Manager.SM_F_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shift_Manager.SM_F_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Complaints", new { id = Model.Product.Product_code })'">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+    </div>
+</p>
