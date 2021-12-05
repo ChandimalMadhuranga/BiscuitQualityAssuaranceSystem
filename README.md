@@ -2,7 +2,6 @@
 
 Prerequisites
 •	Visual Studio 2019 should be installed environment
-•	Microsoft SQL Server Management Studio 2018 should be installed environment
 
 Step1
 Biscuit Quality Assurance System
