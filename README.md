@@ -1,6 +1,6 @@
 # BiscuitQualityAssuaranceSystem
 
-Prerequisites
+Prerequisite
 •	Visual Studio 2019 should be installed environment
 
 Step1
